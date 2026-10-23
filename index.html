@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
+  <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Quarter 2 Seatwork - Marching Band</title>
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: #20281e;
+      font-family: "Rajdhani", sans-serif;
+      background-color: #f3f2df;
+      background-image:
+        repeating-linear-gradient(135deg, rgba(37, 78, 49, 0.035) 0 1px, transparent 1px 13px),
+        linear-gradient(120deg, #f5ef9d, #f8f8ef 60%, #dce9d4);
+    }
+
+    main {
+      width: min(100%, 440px);
+      padding: 38px;
+      border: 1px solid #e9da07;
+      border-top: 5px solid #f3df05;
+      border-radius: 10px;
+      background: #fffef8;
+      box-shadow: 0 22px 60px rgba(42, 58, 31, 0.14);
+      animation: arrive 500ms ease-out both;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 12px;
+      color: #e2f206;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: #24452e;
+      font-family: "Orbitron", sans-serif;
+      font-size: 1.8rem;
+      line-height: 1.2;
+    }
+
+    .intro {
+      margin: 12px 0 28px;
+      color: #66705e;
+      font-size: 1.08rem;
+      line-height: 1.45;
+    }
+
+    label {
+      display: block;
+      margin: 16px 0 7px;
+      color: #364233;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    input {
+      box-sizing: border-box;
+      width: 100%;
+      min-height: 48px;
+      padding: 11px 13px;
+      border: 1px solid #c8d0bf;
+      border-radius: 5px;
+      background: #fff;
+      color: #20281e;
+      font: inherit;
+      font-size: 1rem;
+      transition: border-color 150ms ease, box-shadow 150ms ease;
+    }
+
+    input::placeholder { color: #ffffff; }
+    input:focus { border-color: #fceb00; outline: none; box-shadow: 0 0 0 3px #dce8c9; }
+
+    button {
+      width: 100%;
+      min-height: 49px;
+      margin-top: 24px;
+      border: 0;
+      border-radius: 5px;
+      background: #cdc637fd;
+      color: #fff;
+      font: inherit;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 150ms ease, transform 150ms ease;
+    }
+
+    button:hover { background: #dcdc32; }
+    button:active { transform: translateY(1px); }
+    button:focus-visible { outline: 3px solid #eaff04; outline-offset: 3px; }
+    #result { min-height: 24px; margin: 18px 0 0; color: #ead70b; font-size: 1.02rem; font-weight: 700; }
+
+    @keyframes arrive {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 16px; }
+      main { padding: 28px 22px; }
+      h1 { font-size: 1.55rem; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Quarter 2 Seatwork</p>
+    <h1>Marching Band</h1>
+    <p class="intro">This club has instruments. Enter your name to check membership.</p>
+    <form>
+      <label for="first_name">First name</label>
+      <input type="text" id="first_name" name="first_name" autocomplete="given-name" placeholder="Enter your first name" required>
+      <label for="last_name">Last name</label>
+      <input type="text" id="last_name" name="last_name" autocomplete="family-name" placeholder="Enter your last name" required>
+      <button type="button" py-click="candidate_checker">Check membership</button>
+    </form>
+    <p id="result" aria-live="polite"></p>
+  </main>
+  <script type="py" src="./main.py"></script>
+</body>
+</html>
+</html>
